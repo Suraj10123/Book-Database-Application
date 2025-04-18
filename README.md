@@ -1,4 +1,4 @@
-# Book Recommendation App
+# Book Database App
 
 A simple **CRUD** (Create, Read, Update, Delete) demo using:
 
