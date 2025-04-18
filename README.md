@@ -1,28 +1,33 @@
-# Book Database App
+# Book Recommendation App
 
-A simple **CRUD** (Create, Read, Update, Delete) demo using:
-
-- **Backend**: Node.js, Express, PostgreSQL
-- **Frontend**: React, React Router, Axios
+A full‑stack **CRUD** (Create, Read, Update, Delete) demo application that lets you browse, search, add, edit, and delete book records.
 
 ---
 
-## Prerequisites
+## 🚀 Overview
 
-- [Node.js](https://nodejs.org/) (v16+)
-- [Docker](https://www.docker.com/) (for PostgreSQL container)
+This project is designed as a portfolio piece and learning exercise in building:
+
+- A **PostgreSQL** database backend
+- A **Node.js**/Express REST API
+- A **React** single‑page application with **React Router** and **Axios**
+
+You’ll walk through:
+
+1. **Database schema** and seeding data  
+2. **API server** with endpoints for listing, searching, creating, updating, and deleting books  
+3. **React client** for consuming the API and providing a user interface  
 
 ---
 
-## Setup
+## 📦 Tech Stack
 
-### 1. Start PostgreSQL
+- **Database**: PostgreSQL  
+- **Backend**: Node.js, Express, pg (node‑postgres), dotenv, CORS  
+- **Frontend**: React, Create React App, React Router v6, Axios  
+- **Dev Tools**: Docker (for Postgres), VS Code (recommended), Git & GitHub  
 
-```bash
-docker run -d \
-  --name bookdb \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=bookdb \
-  -p 5432:5432 \
-  postgres:latest
+---
+
+## 🌳 Project Structure
+
