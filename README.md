@@ -1,4 +1,4 @@
-Book Recommendation App
+Book Database App
 A full‑stack CRUD (Create, Read, Update, Delete) demo application that lets you browse, search, add, edit, and delete book records.
 
 🚀 Overview
