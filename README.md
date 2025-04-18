@@ -78,7 +78,7 @@ INSERT 0 2
 
 3. Launch the backend
 cd Backend
-npm install
+npm install (if not already installed)
 npm start
 
 The API server listens on http://localhost:5000.
@@ -90,17 +90,6 @@ npm start
 
 Your browser opens http://localhost:3000.
 
-📡 API Endpoints
-All endpoints return JSON and live under / on port 5000.
-
-
-Method	Path	Description	Request Body	Response
-GET	/books	List all books	—	[ { id, title, author }, … ]
-GET	/books/:id	Get one book by ID	—	{ id, title, author }
-GET	/search?q=term	Search books (title or author, case-ins)	—	[ …matching books… ]
-POST	/books	Create a new book	{ title: string, author: string }	{ id, title, author }
-PUT	/books/:id	Update an existing book	{ title, author }	{ id, title, author }
-DELETE	/books/:id	Remove a book	—	Status 204 (No Content)
 🖼️ UI Workflow
 Home
 
