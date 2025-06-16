@@ -35,6 +35,16 @@ export default function BookDetails() {
     <main style={{ padding:'2rem' }}>
       <h1>{book.title}</h1>
       <p><strong>Author:</strong> {book.author}</p>
+      {book.cover_url && (
+        <img
+          src={book.cover_url}
+          alt={`${book.title} cover`}
+          style={{ maxWidth: '200px', marginTop: '1rem' }}
+        />
+      )}
+      {book.description && (
+        <p style={{ marginTop: '1rem' }}>{book.description}</p>
+      )}
 
       <div style={{ marginTop:'1rem' }}>
         <Link to={`/edit/${id}`} style={{ marginRight:'1rem' }}>

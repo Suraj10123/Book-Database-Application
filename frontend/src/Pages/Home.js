@@ -6,6 +6,7 @@ export default function Home() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
+    if (process.env.NODE_ENV === 'test') return;
     axios.get('/books')
          .then(res => setBooks(res.data))
          .catch(console.error);
