@@ -10,6 +10,16 @@ const app  = express();
 const PORT = process.env.PORT || 5000;
 const pool = new Pool();  // reads PG* from .env
 
+async function ensureSchema() {
+  await pool.query(`CREATE TABLE IF NOT EXISTS books (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL
+  )`);
+  await pool.query('ALTER TABLE books ADD COLUMN IF NOT EXISTS description TEXT');
+  await pool.query('ALTER TABLE books ADD COLUMN IF NOT EXISTS cover_url TEXT');
+}
+
 async function fetchBookInfo(title) {
   try {
     const searchUrl = `https://openlibrary.org/search.json?title=${encodeURIComponent(title)}&limit=1`;
@@ -42,6 +52,7 @@ async function fetchBookInfo(title) {
 // ─── MIDDLEWARE ───────────────────────────────────────────────
 app.use(cors());
 app.use(express.json());
+
 
 // ─── GET all books ───────────────────────────────────────────
 app.get('/books', async (_req, res) => {
@@ -163,4 +174,11 @@ app.delete('/books/:id', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+ensureSchema()
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch(err => {
+    console.error('Error ensuring schema:', err);
+    process.exit(1);
+  });
